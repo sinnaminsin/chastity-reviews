@@ -1,12 +1,7 @@
 title: "Chastity Cage Reviews"
 description: "Honest, in‑depth reviews, comparisons, and hygiene tips for every level of key‑holder."
 url: "https://chastity-reviews.github.io"  # Update if you use a custom domain
-baseurl: ""                # If you publish to <user>.github.io leave blank; for project pages set to repo name
-
-# Site author (shows in meta tags & feed)
-author:
-  name: "Your Name"
-  email: "you@example.com"
+baseurl: " /chastity-reviews"                # If you publish to <user>.github.io leave blank; for project pages set to repo name
 
 # Build settings
 markdown: kramdown
