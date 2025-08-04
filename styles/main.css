@@ -1,104 +1,159 @@
 /* ---------------------------------------------------
-   Base stylesheet for Chastity Cage Reviews
+   Global Styles – refreshed look & feel
    --------------------------------------------------- */
 :root {
-  --primary: #d53f8c;    /* accent pink‑purple */
+  --primary-h: 326;           /* base hue for accent (pink‑purple) */
+  --primary: hsl(var(--primary-h) 70% 50%);
+  --primary-light: hsl(var(--primary-h) 70% 95%);
+  --primary-dark: hsl(var(--primary-h) 60% 35%);
   --gray-900: #1a202c;
   --gray-700: #4a5568;
+  --gray-500: #718096;
   --gray-100: #f7fafc;
+  --radius: 0.75rem;
+  --shadow: 0 4px 8px rgba(0,0,0,.06);
 }
 
 /* Reset / base ------------------------------------------------ */
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                "Helvetica Neue", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   color: var(--gray-900);
-  line-height: 1.6;
-  background: var(--gray-100);
+  background: linear-gradient(180deg, var(--primary-light) 0%, #fff 120%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-img { max-width: 100%; height: auto; }
+img { max-width: 100%; height: auto; border-radius: var(--radius); }
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.2;
+}
 
 /* Header & nav ------------------------------------------------ */
 .site-header {
-  background: var(--primary);
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+  box-shadow: var(--shadow);
 }
 .nav-wrapper {
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1rem 1.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
 }
 .logo {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: #fff;
   text-decoration: none;
 }
 .nav-links {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   gap: 1rem;
+  padding: 0;
+  margin: 0;
 }
 .nav-links a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  transition: opacity .15s ease-in-out;
+  padding: .25rem .5rem;
+  border-radius: var(--radius);
+  transition: background .15s ease-in-out;
 }
 .nav-links a:hover {
-  opacity: .8;
-  text-decoration: underline;
+  background: rgba(255,255,255,.15);
 }
 
 /* Main content ------------------------------------------------ */
 .site-content {
-  max-width: 960px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  flex: 1 0 auto;
+  max-width: 1040px;
+  margin: 2.5rem auto;
+  padding: 0 1.25rem;
 }
 
-/* Tables (comparison) ---------------------------------------- */
+/* Tables (comparison + DataTables) --------------------------- */
 .cage-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 2rem;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.cage-table thead {
+  background: var(--primary);
+  color: #fff;
 }
 .cage-table th,
 .cage-table td {
-  border: 1px solid #e2e8f0;
-  padding: .5rem .75rem;
+  padding: .65rem .85rem;
   text-align: left;
 }
-.cage-table th {
-  background: #edf2f7;
+.cage-table tbody tr:nth-child(odd) { background: #fafafa; }
+.cage-table tbody tr:hover       { background: var(--primary-light); }
+
+/* DataTables overrides */
+table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+  background: var(--primary);   /* responsive + icon */
+}
+.dataTables_wrapper .dataTables_filter {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.dataTables_filter input {
+  padding: .4rem .6rem;
+  border: 1px solid var(--gray-500);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border .2s ease;
+}
+.dataTables_filter input:focus {
+  border-color: var(--primary);
+}
+.dataTables_wrapper .dataTables_filter label { font-weight: 500; }
+
+/* Buttons / links ------------------------------------------- */
+a {
+  color: var(--primary-dark);
+  text-underline-offset: 2px;
+}
+.buy-button {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff !important;
+  padding: .6rem 1.1rem;
+  border-radius: var(--radius);
   font-weight: 600;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.buy-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,.12);
 }
 
 /* Footer ------------------------------------------------------ */
 .site-footer {
-  background: #2d3748;
+  background: var(--gray-900);
   color: #cbd5e0;
   text-align: center;
-  padding: 1rem;
+  padding: 1.25rem;
   font-size: .875rem;
 }
 
 /* Responsive tweaks ------------------------------------------ */
 @media (max-width: 640px) {
-  .nav-wrapper {
-    flex-direction: column;
-  }
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  .nav-wrapper { flex-direction: column; gap: .75rem; }
+  .nav-links   { flex-wrap: wrap; justify-content: center; }
 }
