@@ -1,0 +1,57 @@
+---
+layout: default
+title: "Device Comparison"
+permalink: /compare/
+---
+
+<h1>Chastity Cage Comparison</h1>
+<p>Filter and sort any column—type in the search box or click the column headers.</p>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.css" />
+<table id="cage-table" class="cage-table display">
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Sizes Available</th>
+      <th>Open / Closed</th>
+      <th>Material</th>
+      <th>Custom?</th>
+      <th>Price&nbsp;USD</th>
+      <th>Positives</th>
+      <th>Negatives</th>
+      <th>Website</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for cage in site.data.cages %}
+    <tr>
+      <td>{{ cage.brand }}</td>
+      <td>{{ cage.model }}</td>
+      <td>{{ cage.sizes | join: ', ' }}</td>
+      <td>{{ cage.open_closed }}</td>
+      <td>{{ cage.material }}</td>
+      <td>{% if cage.custom %}Yes{% else %}No{% endif %}</td>
+      <td>${{ cage.price }}</td>
+      <td>{{ cage.positives | join: '; ' }}</td>
+      <td>{{ cage.negatives | join: '; ' }}</td>
+      <td><a href="{{ cage.website }}" target="_blank" rel="noopener">Link</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    $('#cage-table').DataTable({
+      paging: false,
+      info: false,
+      fixedHeader: true,
+      responsive: true,
+      ordering: true,
+      order: [[0, 'asc']]
+    });
+  });
+</script>

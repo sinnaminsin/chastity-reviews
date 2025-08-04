@@ -1,0 +1,171 @@
+# Master list of chastity cages with specs for comparison table.
+#
+# Field reference:
+# - brand (string)
+# - model (string)
+# - sizes (array of strings)
+# - open_closed ("Open" | "Closed")
+# - material (string)
+# - custom (true|false)
+# - price (USD)
+# - positives (array)
+# - negatives (array)
+# - website (URL)
+
+- brand: "Holy Trainer"
+  model: "V5 Nano"
+  sizes: ["Nano", "Small", "Standard", "Max"]
+  open_closed: "Closed"
+  material: "Bio‑resin"
+  custom: false
+  price: 35
+  positives:
+    - Lightweight & discreet
+    - Magnetic hinge on V5 rings
+  negatives:
+    - Resin can stain over months
+    - Limited ventilation
+  website: "https://www.holytrainer.com/"
+
+- brand: "Holy Trainer"
+  model: "V5 Standard"
+  sizes: ["Nano", "Small", "Standard", "Max"]
+  open_closed: "Closed"
+  material: "Bio‑resin"
+  custom: false
+  price: 35
+  positives:
+    - Beginner‑friendly sizing kit
+    - Widely cloned, cheap spares
+  negatives:
+    - Authentic version pricey (~$129)
+    - Airflow still minimal
+  website: "https://www.holytrainer.com/"
+
+- brand: "Kink3D"
+  model: "Cobra"
+  sizes: ["40 mm", "45 mm", "50 mm", "55 mm"]
+  open_closed: "Open"
+  material: "3D‑printed nylon 12"
+  custom: false
+  price: 170
+  positives:
+    - Huge ring/cage matrix
+    - Feather‑light, dries fast
+  negatives:
+    - Uses plastic security pin
+    - Matte nylon picks lint
+  website: "https://kink3d.com/"
+
+- brand: "Kink3D"
+  model: "Viper"
+  sizes: ["40 mm", "45 mm", "50 mm"]
+  open_closed: "Open"
+  material: "3D‑printed nylon 12"
+  custom: false
+  price: 180
+  positives:
+    - Lower profile vs Cobra
+    - Rounded bar edges
+  negatives:
+    - Longer lead times
+  website: "https://kink3d.com/"
+
+- brand: "Cherry Keeper"
+  model: "Standard Cage"
+  sizes: ["Micro", "Short", "Standard", "Large"]
+  open_closed: "Closed"
+  material: "3D‑printed nylon"
+  custom: true
+  price: 30
+  positives:
+    - Fully customizable
+    - Affordable via Shapeways
+  negatives:
+    - Rough until polished
+    - PA pin extra cost
+  website: "https://www.shapeways.com/shops/cherry-keeper"
+
+- brand: "Cherry Keeper"
+  model: "Micro Cage"
+  sizes: ["Micro"]
+  open_closed: "Closed"
+  material: "3D‑printed nylon"
+  custom: true
+  price: 20
+  positives:
+    - Ultra‑compact for “turtlers”
+    - Same ring system as Standard
+  negatives:
+    - Zero grow room ⇒ risk edema
+  website: "https://www.shapeways.com/shops/cherry-keeper"
+
+- brand: "CB‑X"
+  model: "CB‑6000"
+  sizes: ["2.25\"", "2.5\"", "2.75\""]
+  open_closed: "Closed"
+  material: "Polycarbonate"
+  custom: false
+  price: 160
+  positives:
+    - Classic; parts widely sold
+    - Transparent tube for inspection
+  negatives:
+    - Tube can crack
+    - Bulky hinge design
+  website: "https://cb-x.com/"
+
+- brand: "CB‑X"
+  model: "The Curve"
+  sizes: ["3.75\""]
+  open_closed: "Closed"
+  material: "Polycarbonate"
+  custom: false
+  price: 170
+  positives:
+    - Extra length & girth
+  negatives:
+    - Same cracking issue
+  website: "https://cb-x.com/"
+
+- brand: "Evotion"
+  model: "Orion"
+  sizes: ["Custom"]
+  open_closed: "Open"
+  material: "3D‑printed resin"
+  custom: true
+  price: 359
+  positives:
+    - Tailored CAD fit
+    - Titanium option
+  negatives:
+    - 6‑week lead time
+    - Pricey adjustments
+  website: "https://evotionwearables.com/"
+
+- brand: "Custom Chastity"
+  model: "Guardian"
+  sizes: ["Custom"]
+  open_closed: "Closed"
+  material: "3D‑printed nylon"
+  custom: true
+  price: 225
+  positives:
+    - Split‑ring hinge easy on/off
+  negatives:
+    - Visible layer lines
+  website: "https://customchastity.com/"
+
+- brand: "QIUI"
+  model: "Cellmate 3"
+  sizes: ["45 mm", "51 mm"]
+  open_closed: "Closed"
+  material: "PC + zinc alloy"
+  custom: false
+  price: 170
+  positives:
+    - App‑controlled locking
+  negatives:
+    - Reported security flaws
+    - Heavy (200 g)
+  website: "https://qiuitoys.com/"
