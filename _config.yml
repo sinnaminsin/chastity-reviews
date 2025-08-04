@@ -1,0 +1,59 @@
+title: "Chastity Cage Reviews"
+description: "Honest, in‑depth reviews, comparisons, and hygiene tips for every level of key‑holder."
+url: "https://chastity-reviews.github.io"  # Update if you use a custom domain
+baseurl: ""                # If you publish to <user>.github.io leave blank; for project pages set to repo name
+
+# Site author (shows in meta tags & feed)
+author:
+  name: "Your Name"
+  email: "you@example.com"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Theme (minima keeps things lightweight; you can override styles in /styles/main.css)
+theme: minima
+
+# Plugins that GitHub Pages supports by default
+plugins:
+  - jekyll-feed      # /feed.xml for RSS/Atom
+  - jekyll-sitemap   # /sitemap.xml
+  - jekyll-seo-tag   # Structured meta + OpenGraph cards
+
+# Collections let us separate reviews from other posts
+auto_pages:
+  permalink: /:title/
+
+collections:
+  reviews:
+    output: true
+    permalink: /reviews/:title/
+
+# Default front‑matter values for each collection
+defaults:
+  - scope:
+      path: ""
+      type: "reviews"
+    values:
+      layout: "review"
+      comments: false
+
+# Permalink style for regular posts (none planned yet, but future‑proofing)
+permalink: /:categories/:title/
+
+# Navigation links used in the header include
+nav:
+  - text: "Home"
+    url: "/"
+  - text: "All Reviews"
+    url: "/reviews/"
+  - text: "About"
+    url: "/about/"
+
+# Exclude files & folders from the build (local scripts, drafts, etc.)
+exclude:
+  - node_modules
+  - vendor
+  - README.md
+  - Gemfile*

@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<article class="review">
+  <header class="review-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.brand %}<p class="review-brand">by <strong>{{ page.brand }}</strong></p>{% endif %}
+  </header>
+
+  <!-- Hero image (first Markdown image or explicit front‑matter field) -->
+  {% if page.hero %}
+    <img class="review-hero" src="{{ page.hero | relative_url }}" alt="{{ page.title }} hero image" />
+  {% endif %}
+
+  <!-- Quick spec summary -->
+  <section class="review-specs">
+    <table class="cage-table">
+      <tbody>
+        {% if page.style %}<tr><th>Style</th><td>{{ page.style }}</td></tr>{% endif %}
+        {% if page.material %}<tr><th>Material</th><td>{{ page.material }}</td></tr>{% endif %}
+        {% if page.length_mm %}<tr><th>Length</th><td>{{ page.length_mm }} mm</td></tr>{% endif %}
+        {% if page.msrp %}<tr><th>MSRP</th><td>${{ page.msrp }}</td></tr>{% endif %}
+        {% if page.street_price %}<tr><th>Avg Price</th><td>${{ page.street_price }}</td></tr>{% endif %}
+        {% if page.max_wear_days %}<tr><th>Max Wear</th><td>{{ page.max_wear_days }} days†</td></tr>{% endif %}
+        {% if page.rating %}<tr><th>Rating</th><td>{{ page.rating }}/5</td></tr>{% endif %}
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Main body content injected from Markdown file -->
+  <section class="review-body">
+    {{ content }}
+  </section>
+
+  <!-- Pros / Cons from front‑matter arrays -->
+  {% if page.pros or page.cons %}
+  <section class="review-pros-cons">
+    <div class="pros">
+      {% if page.pros %}
+      <h2>Pros</h2>
+      <ul>
+        {% for p in page.pros %}<li>{{ p }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    <div class="cons">
+      {% if page.cons %}
+      <h2>Cons</h2>
+      <ul>
+        {% for c in page.cons %}<li>{{ c }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Affiliate / purchase CTA -->
+  {% if page.affiliate %}
+  <section class="review-cta">
+    <a class="buy-button" href="{{ page.affiliate }}" target="_blank" rel="noopener">Buy / More Info</a>
+  </section>
+  {% endif %}
+
+  <footer class="review-footer">
+    <p class="disclaimer">†Wear‑time estimates vary by individual anatomy and hygiene practices.</p>
+    <p class="back-link"><a href="{{ '/reviews/' | relative_url }}">← Back to all reviews</a></p>
+  </footer>
+</article>
